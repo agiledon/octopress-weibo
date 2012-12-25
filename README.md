@@ -10,19 +10,21 @@ Files
 I create the new folder "_custom" for main ruby file. You can download it and copy it to the root directory of Octopress. 
 
 To support rake task, I add the customize task into the Rakefile. You can download it and replace the original one directily, or you can open your Rakefile, add the code snippet as below:
-{% codeblock lang:ruby %}
-desc "Post the title and url of latest blog to Sina Weibo"
-task :weibo do
-  puts "Post the title and url of latest blog to Sina Weibo"
-  system "ruby _custom/post_weibo.rb"
-end
-{% endcodeblock %}
+
+    desc "Post the title and url of latest blog to Sina Weibo"
+        task :weibo do
+        puts "Post the title and url of latest blog to Sina Weibo"
+        system "ruby _custom/post_weibo.rb"
+    end
+
+
 
 Configuration
 ======
 You must add the following configs into the _config.yml:
-access_token: Your access token provided by Sina weibo
-post_template: 我在agiledon.github.com上发表了最新博客《%{blog_title}》，请访问链接：%{blog_url}
+    
+    access_token: Your access token provided by Sina weibo
+    post_template: 我在agiledon.github.com上发表了最新博客《%{blog_title}》，请访问链接：%{blog_url}
 
 You can customize your post template, but the most important thing is you don't change the variables including %{blog_title} and %{blog_url}.
 
@@ -39,15 +41,18 @@ The main url, such as http://agiledon.github.com is come from the value of url i
 Dependencies
 ======
 My implemention use the "faraday" to send the post request, so you should add the gem dependencies into the Gemfile:
-gem "faraday", "~> 0.8.4"
+
+    gem "faraday", "~> 0.8.4"
 
 Then, you should go to the root directory of octopress, run the command to install faraday:
-bundle install
+
+    bundle install
 
 How to use it
 =======
 If everything is OK, you can run the rake command as below after you finishe your new blog:
-rake weibo
+
+    rake weibo
 
 It will post the content you configure in the _config.yml to your sina weibo.
 
