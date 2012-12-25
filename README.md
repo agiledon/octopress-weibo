@@ -7,7 +7,7 @@ It seems like plugin for Octopress. It provides the rake task to post the latest
 
 Files
 ======
-I create the new folder "_custom" for main ruby file. You can download it and copy it to the root directory of Octopress. 
+I create the new folder "_custom" which contains the only one ruby file. You can download it and copy it to the root directory of Octopress. 
 
 To support rake task, I add the customize task into the Rakefile. You can download it and replace the original one directily, or you can open your Rakefile, add the code snippet as below:
 
@@ -26,7 +26,7 @@ You must add the following configs into the _config.yml:
     access_token: Your access token provided by Sina weibo
     post_template: 我在agiledon.github.com上发表了最新博客《%{blog_title}》，请访问链接：%{blog_url}
 
-You can customize your post template, but the most important thing is you don't change the variables including %{blog_title} and %{blog_url}.
+What you should do is to customize your post template, but the most important thing is you can't change the variables including %{blog_title} and %{blog_url}.
 
 %{blog_title}: the title of your latest blog. It can support English, Chinese and other languages;
 %{blog_url}: the url of your latest blog. 
@@ -34,7 +34,8 @@ You can customize your post template, but the most important thing is you don't 
 Don't worry about how to get this information for post_template, this plugin can extract the correct information. 
 
 For example, you create the new post which file name is 2012-12-25-test-demo.markdown, and the title is "测试演示". The content of your weibo post is:
-我在agiledon.github.com上发表了最新博客《测试演示》，请访问链接：http://agiledon.github.com/2012/12/25/test-demo
+
+    我在agiledon.github.com上发表了最新博客《测试演示》，请访问链接：http://agiledon.github.com/2012/12/25/test-demo
 
 The main url, such as http://agiledon.github.com is come from the value of url in the _config.yml. 
 
@@ -44,17 +45,17 @@ My implemention use the "faraday" to send the post request, so you should add th
 
     gem "faraday", "~> 0.8.4"
 
-Then, you should go to the root directory of octopress, run the command to install faraday:
+Then, you might go to the root directory of octopress, run the command to install faraday:
 
     bundle install
 
 How to use it
 =======
-If everything is OK, you can run the rake command as below after you finishe your new blog:
+If everything is OK, you can run the rake command as below after you finish your new blog:
 
     rake weibo
 
-It will post the content you configure in the _config.yml to your sina weibo.
+It will post the content according to the template in _config.yml to your sina weibo automatically. I strongly suggest you might run it after you make sure you have deployed your new blog successfuly. 
 
 License
 ======
