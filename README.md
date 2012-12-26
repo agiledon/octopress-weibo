@@ -3,7 +3,7 @@
 
 Description
 ======
-It seems like plugin for Octopress. It provides the rake task to post the latest blog to sina weibo automatically.
+It seems like plugin for Octopress. It provides the rake task to post the latest blog to sina weibo automatically. 中文介绍，请访问链接：[Octopress的新浪微博插件](http://agiledon.github.com/blog/2012/12/26/weibo-plugin-for-octopress/)。
 
 Files
 ======
