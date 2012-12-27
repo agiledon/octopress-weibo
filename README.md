@@ -21,7 +21,7 @@ To support rake task, I add the customize task into the Rakefile. You can downlo
 
 Configuration
 ======
-You must add the following configs into the _config.yml:
+You must add the following configs into the new weibo-config.yml:
     
     access_token: Your access token provided by Sina weibo
     post_template: 我在agiledon.github.com上发表了最新博客《%{blog_title}》，请访问链接：%{blog_url}
@@ -36,6 +36,8 @@ Don't worry about how to get this information for post_template, this plugin can
 For example, you create the new post which file name is 2012-12-25-test-demo.markdown, and the title is "测试演示". The content of your weibo post is:
 
     我在agiledon.github.com上发表了最新博客《测试演示》，请访问链接：http://agiledon.github.com/2012/12/25/test-demo
+
+Notes: You'd better add the file name of weibo-config.yml into your .gitignore file, so that it can let your access-token more safe.
 
 The main url, such as http://agiledon.github.com is come from the value of url in the _config.yml. 
 
