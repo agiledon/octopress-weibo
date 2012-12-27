@@ -1,0 +1,3 @@
+# Sina Weibo Post
+access_token: #Your access token
+post_template: 我在agiledon.github.com上发表了最新博客《%{blog_title}》，请访问链接：%{blog_url}

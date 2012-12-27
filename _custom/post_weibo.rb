@@ -3,14 +3,15 @@ require 'yaml'
 
 class WeiboPoster
   def initialize
-    @config = YAML.load_file(File.expand_path(File.dirname(__FILE__) + '/../_config.yml'))    
+    @config = YAML.load_file(File.expand_path(File.dirname(__FILE__) + '/../_config.yml')) 
+    @weibo_config = YAML.load_file(File.expand_path(File.dirname(__FILE__) + '/../weibo-config.yml'))    
   end
 
   def post_weibo
     conn = Faraday.new(:url => "https://api.weibo.com")
 
     result = conn.post '/2/statuses/update.json',
-                       :access_token => @config['access_token'],
+                       :access_token => @weibo_config['access_token'],
                        :status => generate_post
     puts "post successful"
   end
@@ -18,7 +19,7 @@ class WeiboPoster
   private
 
   def generate_post    
-    post_template = @config['post_template'].force_encoding("utf-8")
+    post_template = @weibo_config['post_template'].force_encoding("utf-8")
     post_template % {:blog_title => latest_blog_title, :blog_url => generate_blog_url }   
   end
 
