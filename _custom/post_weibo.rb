@@ -1,5 +1,6 @@
 require 'faraday'
 require 'yaml'
+require 'json'
 
 class WeiboPoster
   def initialize
@@ -13,7 +14,13 @@ class WeiboPoster
     result = conn.post '/2/statuses/update.json',
                        :access_token => @weibo_config['access_token'],
                        :status => generate_post
-    puts "post successful"
+
+    responseJSON = JSON.parse result.body
+    if responseJSON['error_code']
+      puts 'post error:' + responseJSON['error']
+    else
+      puts "post successfully"
+    end
   end
 
   private
