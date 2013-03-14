@@ -41,7 +41,11 @@ class WeiboPoster
 
   def convert_to_blog_url(post_file_name)
     #convert 2012-12-21-demo-blog.markdown file name to be normal blog url: 2012/12/21/demo-blog
-    File.basename(post_file_name, ".markdown").gsub(/\d-/) { |s| s[0] + "/"}
+    filename = File.basename(post_file_name, ".markdown")
+    filename[4] = "/"
+    filename[7] = "/"
+    filename[10] = "/"
+    filename
   end
 end
 
